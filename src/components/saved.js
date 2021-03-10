@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import {SAVE} from './actions';
+import {SAVE} from '../actions';
 
 
 const SavedPoke = () =>{
@@ -13,3 +13,5 @@ const SavedPoke = () =>{
             </>
     )
 }
+
+export default SavedPoke;

@@ -1,5 +1,7 @@
 import React,{ useState } from 'react';
 import axios from "axios";
+import '../App.css';
+import ball from '../assets/pokeball.png';
 
 
 const Search = () =>{
@@ -31,23 +33,48 @@ const Search = () =>{
       }
     return(
         <>
-            <h1>Pokemons</h1>
+        <div className="container" key={"i"} id="pokeStatus">
+            <h1 className="container-title">Pokemons</h1>
           <form onSubmit={handleSubmit}>
-            <input id="nome" type="text" onChange={handleChange} placeholder="Nome ou ID do pokemon"/>
+            <input id="nome" required
+             type="text" onChange={handleChange}
+              placeholder="Nome ou ID do pokemon"
+              className="input-form"/>
           </form>
           {pokemonData.map((data)=>{
             return(
-              <div className="container" key={"i"} id="pokeStatus">
-                  <img src={data.sprites.front_default}/>
-                  <img src={data.sprites.front_shiny}/>
-                  <p >{data.name} {data.id}</p>
-                  <p >{data.types[0].type.name }</p>
-                  <p> {data.weight } Kg</p>
-                  <p> {data.height * 0.1} Metros</p>
-                  <button>Save</button>
-              </div>
+              
+                  <div className="info-visual">
+                      <div className="info-status-title">
+                        <h1 className="info">{data.name}</h1>
+                        <h4>#{data.id}</h4>
+                      </div>
+                        <img src={data.sprites.front_default} className="info-image"/>
+                        {/* <img id="img2" src={data.sprites.back_default} className="info-image"/> */}
+                        <img src={ball} className="bg-1"/>
+                    <div className="info-general">
+                            <p>Sobre</p>
+                            <hr/>
+                            <button>❤</button>
+                        <div className="info-status">
+                            <p className="info-spec">Tipo:</p>
+                            <p className="info">{data.types[0].type.name }</p>
+                        </div>
+                        <div className="info-status">
+                            <p className="info-spec">Peso:</p>
+                            <p className="info"> {data.weight } Kg</p>
+                        </div>
+                        <div className="info-status">
+                            <p className="info-spec">Altura</p>
+                            <p className="info"> {Math.round(data.height * 0.1)} M</p>
+                        </div>
+                            
+                    </div>
+                  </div>
+              
             )
           })}
+          </div>
         </>
     )
 }
