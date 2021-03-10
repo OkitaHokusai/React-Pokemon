@@ -4,42 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
+import allReducers from './reducers';
+import {Provider} from 'react-redux';
 
+const myStore = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-
-//Store
-
-//Action 
-const save = () => {
-  return {
-    type: 'SAVE'
-  };
-};
-const deletar = () => {
-  return {
-    type: 'DELETE'
-  };
-};
-//Reducer
-const counter = (state = 0, action) => {
-  switch(action.type){
-    case "SAVE":
-      return state + 1;
-    case "DELETE":
-      return state - 1;  
-  };
-};
-
-let store = createStore(counter);
-//console view
-store.subscribe(()=>console.log(store.getState()));
-//Dispatch
-store.dispatch(save());
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={myStore}>
     <App />
-  </React.StrictMode>,
+    </Provider>,
   document.getElementById('root')
 );
 
