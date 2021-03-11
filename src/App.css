@@ -1,13 +1,51 @@
 @import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
 
+*{
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
 body{
   font-family: 'DM Sans', sans-serif;
+
   
 }
 .App {
   text-align: center;
 }
+.container-save{
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.container-saved{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-right: 35px;
+  padding-left: 35px;
+}
+.card-saved{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+  padding:20px;
+  margin: 5px;
+  border-radius: 5px;
+}.card-saved p,.card-saved h3{
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0;
+} .card-saved:hover{
+  opacity: 0.9;
+}
 
+.pokedex-top{
+  background-color: red;
+  border-bottom: black solid 1px;
+  box-shadow: 0px 6px 60px 30px rgba(0,0,0,1);
+}
 .info{
   text-transform: capitalize;
 }
@@ -17,7 +55,6 @@ body{
 .container{
   display: flex;
   flex-direction: column;
-  background-color: cadetblue;
   
 }
 .info-image{
@@ -26,11 +63,17 @@ body{
   margin-top: 20px;
   position: relative;
   z-index: 1;
+} .info-image:hover{
+  animation: jump .5s linear ;
 }
 
 .info-status{
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  transition:.1s ease-in-out;
+} .info-status:hover{
+  background-color: rgb(243, 243, 243);
 }
 
 .info-spec{
@@ -56,10 +99,13 @@ hr{
   border-radius: 50%;
 }
 .info-general {
+  box-shadow: 0px -7px 27px 4px rgba(0,0,0,0.2);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   padding-top: 10px;
   background-color: white;
+} .info-general p{
+  font-size: 20px;
 }
 .info-visual{
   
@@ -69,7 +115,7 @@ hr{
   opacity: 0.2;
   z-index: 0;
   top: 210px;
-  right: 10px;
+  right: 60px;
   position: absolute;
   height: 150px;
   transform: rotate(45deg);
@@ -93,7 +139,30 @@ hr{
   border-radius: 10px;
   border: none;
   background-color: white;
+  border: solid 1px black;
   margin-bottom: 10px;
+}
+.pokemon-list{
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  
+}
+.pokemon-data{
+  margin-right: 10px;
+}
+
+.card-button{
+  border-radius: 10px;
+  background-color: rgb(228, 67, 67);
+  border: none;
+  height: 30%;
+  margin: auto;
+  overflow-y:hidden ;
+  padding:10px;
+  color: white;
+}.card-button:hover{
+  background-color: brown;
 }
 
 @keyframes rotate{
@@ -102,5 +171,36 @@ hr{
   }
   to {
       -webkit-transform: rotate(359deg);
+  }
+}
+@keyframes jump {
+  0% {
+    padding-right: 0;
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    padding-right: 10px;
+    -webkit-transform: rotate(-10deg);
+  }
+  75% {
+    padding-right: 5px;
+    -webkit-transform: rotate(10deg);
+  }
+  100%{
+    padding-right: 0px;
+    -webkit-transform: rotate(0deg);
+  }
+}
+@media only screen and (max-width:600px){
+  .container-saved{
+    justify-content: center;
+  }
+  .card-saved{
+    width: 70%;
+    justify-content: space-around;
+  }
+  .container-saved{
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
