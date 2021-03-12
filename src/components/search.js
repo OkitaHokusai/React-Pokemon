@@ -31,17 +31,12 @@ const Search = () =>{
 
     const getPokemon = async () => {
         const toArray = [];
-        // try {
+ 
           const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
           const res = await axios.get(url);
           toArray.push(res.data);
           
           setPokemonData(toArray);
-          
-        // // } catch (e){
-        //   console.log(e);
-        //   alert('Pokemon não encontrado');
-        // };
       };
       
       const handleChange = (e) => {
@@ -83,9 +78,11 @@ const Search = () =>{
                             <button 
                               onClick={handleSave}>❤</button>
                         <div className="info-status">
-                            <p className="info-spec">Tipo:</p>
+                            <p className="info-spec">
+                              <i class="fas fa-atom"></i>
+                              Tipo:
+                            </p>
                             <div>
-                            {console.log(data.types)}
                               <p className={data.types[0].type.name +"-button info button"}>
                                 {data.types[0].type.name}
                               </p>
@@ -95,12 +92,25 @@ const Search = () =>{
                             </div>
                         </div>
                         <div className="info-status">
-                            <p className="info-spec">Peso:</p>
+                            <p className="info-spec">
+                            <i class="fas fa-weight-hanging"></i>
+                              Peso:</p>
                             <p className="info"> {data.weight/10 } Kg</p>
                         </div>
                         <div className="info-status">
-                            <p className="info-spec">Altura:</p>
+                            <p className="info-spec">
+                            <i class="fas fa-male"></i>
+                            <i class="fas fa-arrows-alt-v"></i>
+                              Altura:</p>
                             <p className="info"> {data.height/10} M</p>
+                        </div>
+                        <div className="info-status">
+                            <p className="info-spec">Habilidade:</p>
+                            <p className="info"> {data.abilities[0].ability.name}</p>
+                        </div>
+                        <div className="info-status">
+                            <p className="info-spec">Experiência:</p>
+                            <p className="info"> {data.base_experience}</p>
                         </div>
                             
                     </div>

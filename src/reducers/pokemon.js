@@ -2,7 +2,7 @@ const pokemonReducer = ( state = [], action) => {
     switch(action.type){
         case 'SAVE':   
         const index = state.findIndex(e=> e.id == action.pokemon.id);
-            if(index == -1){
+            if(index === -1){
                 return state = [...state, action.pokemon];
             }else{
                 return state;

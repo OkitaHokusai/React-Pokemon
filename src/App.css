@@ -107,8 +107,8 @@ hr{
 } .info-general p{
   font-size: 20px;
 }
-.info-visual{
-  
+.info-spec i{
+   padding-right: 5px;
 }
 
 .bg-1{
@@ -156,13 +156,15 @@ hr{
   border-radius: 10px;
   background-color: rgb(228, 67, 67);
   border: none;
-  height: 30%;
+  height: 30px;
   margin: auto;
-  overflow-y:hidden ;
+  overflow: hidden ;
   padding:10px;
   color: white;
 }.card-button:hover{
   background-color: brown;
+}.card-button i{
+  overflow: hidden ;
 }
 
 @keyframes rotate{
@@ -198,6 +200,7 @@ hr{
   .card-saved{
     width: 70%;
     justify-content: space-around;
+    flex-direction: column;
   }
   .container-saved{
     padding-left: 15px;

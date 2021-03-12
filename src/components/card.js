@@ -17,7 +17,9 @@ const Card = (props) =>{
             <div>
                 <img src={props.sprite}/>
             </div>
-            <button className="card-button" onClick={()=>dispatch(DELETE(props.pId))}>X</button>
+            <button className="card-button" onClick={()=>dispatch(DELETE(props.pId))}>
+                <i class="fas fa-minus-circle"></i>
+            </button>
         </div>
     )
 }
